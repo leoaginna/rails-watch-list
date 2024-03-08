@@ -2,11 +2,12 @@
 
 <ul>
   <% @list.movies.each do |movie| %>
-    <%bookmark = Bookmark.find_by(List: @list, movie: movie) %>
-    <li><%= movie.title %> </li>
-    # more info????
-  <% end %>
+    <li>
+      <%= movie.title %>
+      <% bookmark = Bookmark.find_by(list: @list, movie: movie) %>
+    </li>
+    <% end %>
 </ul>
-
-<%= link_to 'Back to Lists', lists_path %>
-# add bookmark 
+      
+      <%= link_to 'Back to Lists', lists_path %>
+      <%= link_to 'Add a Bookmark', new_list_bookmark_path(@list), class: 'btn btn-primary'  %>
