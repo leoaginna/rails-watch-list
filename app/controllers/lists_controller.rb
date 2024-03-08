@@ -15,6 +15,10 @@ class ListsController < ApplicationController
     redirect_to list_path(@list)
   end
 
+  def show
+      @list = List.find(params[:id])
+  end
+  
 end
 
 private
